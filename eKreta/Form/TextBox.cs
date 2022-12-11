@@ -8,23 +8,43 @@ namespace eKreta.Form
 {
     class TextBox
     {
-        private string data;
+        public string data;
         private int cursorPos;
         private int x, y;
+        private bool is_pwd;
 
-        public TextBox(int p_x, int p_y, string p_data = "veszc-ipari")
+        public TextBox(int p_x, int p_y, bool p_is_pwd = false, string p_data = "")
         {
             x = p_x;
             y = p_y;
             data = p_data;
+            is_pwd = p_is_pwd;
+
+            Console.SetCursorPosition(x, y);
+            Console.Write(data);
         }
 
         public void focus()
         {
             cursorPos = 0;
+            Console.SetCursorPosition(x, y);
+
+            bool consoleDirty = (data.Length > 0);
+
             ConsoleKeyInfo key;
             while ((key = Console.ReadKey(true)).Key != ConsoleKey.Tab)
             {
+                if (consoleDirty) {
+                    for (int i = 0; i < data.Length; i++) {
+                        Console.SetCursorPosition(x + i, y);
+                        Console.Write(" ");
+                    }
+
+                    Console.SetCursorPosition(x, y);
+                    data = "";
+                    consoleDirty = false;
+                }
+
                 if (key.Key == ConsoleKey.Backspace) {
                     if (cursorPos <= 0) continue;
 
@@ -32,9 +52,6 @@ namespace eKreta.Form
                     Console.Write(" ");
                     Console.SetCursorPosition(x + --cursorPos, y);
 
-                    /* Ilyen egy szar programozási nyelvet, hogy minden egyes string műveletnél
-                     * új memóriát kell foglalnia ennek az okádéknak :<
-                     */
                     data = data.Remove(data.Length - 1);
 
                     continue;
@@ -42,7 +59,7 @@ namespace eKreta.Form
 
                 
                 Console.SetCursorPosition(x + cursorPos++, y);
-                Console.Write(key.KeyChar);
+                Console.Write(is_pwd ? '*' : key.KeyChar);
                 data += key.KeyChar;
             }
         }

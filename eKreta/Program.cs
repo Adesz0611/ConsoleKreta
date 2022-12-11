@@ -27,6 +27,10 @@ namespace eKreta
                 switch (state) {
                     case State.BELEPES:
                         user = Login.LoginInterface();
+                        Console.Clear();
+                        Console.SetCursorPosition(0, 0);
+                        user.Print();
+                        Console.ReadKey();
                         break;
                 }
 

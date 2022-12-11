@@ -23,5 +23,11 @@ namespace eKreta
             this.password = password;
             this.ist = ist;
         }
+
+        public void Print() {
+            Console.WriteLine("Username: " + username);
+            Console.WriteLine("Password: " + password);
+            Console.WriteLine("IST: " + ist);
+        }
     }
 }
