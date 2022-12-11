@@ -1,0 +1,7 @@
+D:\eKréta\eKreta\eKreta\bin\Debug\eKreta.exe.config
+D:\eKréta\eKreta\eKreta\bin\Debug\eKreta.exe
+D:\eKréta\eKreta\eKreta\bin\Debug\eKreta.pdb
+D:\eKréta\eKreta\eKreta\obj\Debug\eKreta.csproj.AssemblyReference.cache
+D:\eKréta\eKreta\eKreta\obj\Debug\eKreta.csproj.CoreCompileInputs.cache
+D:\eKréta\eKreta\eKreta\obj\Debug\eKreta.exe
+D:\eKréta\eKreta\eKreta\obj\Debug\eKreta.pdb
