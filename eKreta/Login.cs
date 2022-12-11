@@ -35,25 +35,8 @@ namespace eKreta
             int i = 0;
             while (true) {
                 if (i == 3) {
-                    Console.CursorVisible = false;
-                    Console.SetCursorPosition(Console.WindowWidth / 2, 14);
-                    Console.BackgroundColor = ConsoleColor.White;
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    Console.Write("Belépés");
-                    ConsoleKeyInfo k;
-                    while ((k = Console.ReadKey(true)).Key != ConsoleKey.Tab) {
-                        if (k.Key == ConsoleKey.Enter) {
-                            Console.BackgroundColor = ConsoleColor.Black;
-                            Console.ForegroundColor = ConsoleColor.White;
-                            return new User(textboxes[0].data, textboxes[1].data, textboxes[2].data);
-                        }
-                    }
-
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.SetCursorPosition(Console.WindowWidth / 2, 14);
-                    Console.Write("Belépés");
-                    Console.CursorVisible = true;
+                    if (buttonFocus())
+                        return new User(textboxes[0].data, textboxes[1].data, textboxes[2].data);
                 }
                 else {
                     textboxes[i].focus();
@@ -69,6 +52,35 @@ namespace eKreta
                 Console.SetCursorPosition(Console.WindowWidth / 2 - 13 - label.Length, i += 2);
                 Console.Write(label);
             }
+        }
+
+        private static bool buttonFocus()
+        {
+            bool clicked = false;
+
+            Console.CursorVisible = false;
+            Console.SetCursorPosition(Console.WindowWidth / 2, 14);
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Write("Belépés");
+            ConsoleKeyInfo k;
+            while ((k = Console.ReadKey(true)).Key != ConsoleKey.Tab)
+                if (k.Key == ConsoleKey.Enter)
+                {
+                    clicked = true;
+                    break;
+                }
+
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.White;
+
+            if (clicked) return true;
+
+            Console.SetCursorPosition(Console.WindowWidth / 2, 14);
+            Console.Write("Belépés");
+            Console.CursorVisible = true;
+
+            return false;
         }
     }
 }
