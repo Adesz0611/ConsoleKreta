@@ -60,8 +60,8 @@ namespace eKreta
 
             Console.CursorVisible = false;
             Console.SetCursorPosition(Console.WindowWidth / 2, 14);
-            Console.BackgroundColor = ConsoleColor.White;
-            Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = Settings.ForegroundColor;
+            Console.ForegroundColor = Settings.BackgroundColor;
             Console.Write("Belépés");
             ConsoleKeyInfo k;
             while ((k = Console.ReadKey(true)).Key != ConsoleKey.Tab)
@@ -71,8 +71,8 @@ namespace eKreta
                     break;
                 }
 
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = Settings.BackgroundColor;
+            Console.ForegroundColor = Settings.ForegroundColor;
 
             if (clicked) return true;
 

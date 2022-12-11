@@ -10,6 +10,9 @@ namespace eKreta
     {
         BELEPES,
         MENU,
-        ERTEKELESEK
+        ERTEKELESEK,
+        ORAREND,
+        SZEMELYES_ADATOK,
+        KILEPES
     }
 }

@@ -21,12 +21,39 @@ namespace eKreta
             State state = State.BELEPES;
             User user;
 
-            Logo.DrawBelepes();
+            Console.BackgroundColor = Settings.BackgroundColor;
+            Console.ForegroundColor = Settings.ForegroundColor;
+
             while (true)
             {
                 switch (state) {
                     case State.BELEPES:
                         user = Login.LoginInterface();
+                        state = State.MENU;
+                        break;
+                    case State.MENU:
+                        state = Menu.MenuInterface();
+                        break;
+                    case State.ERTEKELESEK:
+                        Console.Clear();
+                        Console.Write("Értékelések");
+                        Console.ReadKey();
+                        state = State.MENU;
+                        break;
+                    case State.ORAREND:
+                        Console.Clear();
+                        Console.Write("Órarend");
+                        Console.ReadKey();
+                        state = State.MENU;
+                        break;
+                    case State.SZEMELYES_ADATOK:
+                        Console.Clear();
+                        Console.Write("Személyes adatok");
+                        Console.ReadKey();
+                        state = State.MENU;
+                        break;
+                    case State.KILEPES:
+                        Environment.Exit(0);
                         break;
                 }
 
