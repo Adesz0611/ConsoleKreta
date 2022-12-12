@@ -8,7 +8,8 @@ namespace eKreta
 {
     class Menu
     {
-        private static string[] menupontok = new string[] { "Értékelések", "Órarend", "Személyes adatok", "Kilépés"};
+        private static string[] menupontok = new string[] { "   Értékelések  ", "     Órarend    ", "Személyes adatok", "     Kilépés    "};
+        //private static string[] menupontok = new string[] { "Értékelések", "Órarend", "Személyes adatok", "Kilépés"};
         private static int highlighted = 0;
 
         private static void drawMenu()

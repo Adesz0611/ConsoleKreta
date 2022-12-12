@@ -19,7 +19,7 @@ namespace eKreta
 
             //Logo.DrawEkreta();
             State state = State.BELEPES;
-            User user;
+            User user = new User("", "", "");
 
             Console.BackgroundColor = Settings.BackgroundColor;
             Console.ForegroundColor = Settings.ForegroundColor;
@@ -29,6 +29,7 @@ namespace eKreta
                 switch (state) {
                     case State.BELEPES:
                         user = Login.LoginInterface();
+                        user.LoadBearer();
                         state = State.MENU;
                         break;
                     case State.MENU:
